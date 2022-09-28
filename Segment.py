@@ -36,12 +36,37 @@ class Segment(Line):
         else:
            raise Exception("Not valid value")
 
+    def get_y(self, x):
+        if (self.xy1[0] <= x <= self.xy2[0]):
+            return super().get_y(x)
+        else:
+            return None
+
+    def intersect_point(self, line):
+        point = super().intersect_point(line)
+
+        if point != None and (min(self.xy1[0], self.xy2[0]) <= point[0] <= max(self.xy1[0], self.xy2[0])) and (min(self.xy1[1], self.xy2[1]) <= point[1] <= max(self.xy1[1], self.xy2[1])):
+            return point
+
+
+        else:
+            return None
+
+        
+
+         
+
+         
+
+            
+
         
 
 
 test = Segment((0,0), (1, 5))
 
-print(test.is_inline((-1,-5)))
+test2 = Line(m = 2, b = 3)
 
+print(test.intersect_point(test2))
 
 #y = 5x

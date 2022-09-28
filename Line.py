@@ -15,6 +15,8 @@ class Line:
                     self.b = b
                     self.m = m
                     self.color = color
+                    self.xy1 = (1, 1 * self.m + b)
+                    self.xy2 = (2, 2 * self.m + b)
 
                 else:
                     raise Exception("b must be int or float")
